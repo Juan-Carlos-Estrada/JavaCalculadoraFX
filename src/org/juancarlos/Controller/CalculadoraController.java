@@ -46,10 +46,10 @@ public class CalculadoraController {
             operador = entrada;
                     actualizarPantalla(pantalla);
         } 
-        else if (entrada.equals("+") || entrada.equals("*")  || entrada.equals("√"))  {
-      if (entrada.equals("√") || !opcion1.isEmpty()) {
+        else if (entrada.equals("%") || entrada.equals("√")) {
             operador = entrada;
-        }
+            actualizarPantalla(pantalla);
+        } 
         
         else if (entrada.equals("=")) {
             if (operador.equals("+")) {
@@ -64,16 +64,20 @@ public class CalculadoraController {
             }
             else if (operador.equals("√")) {
                 opcion1 = resultadoRaizCuadrada(opcion1);
+                String numeroParaRaiz = opcion1.isEmpty() ? opcion2 : opcion1;
+                opcion1 = resultadoRaizCuadrada(numeroParaRaiz);
+            }
+                        }    
+            else if (operador.equals("%")) {
+                opcion1 = resultadoPorcentaje(opcion1, opcion2);
             }
             operador = "";
             opcion2 = "";
             calculoTerminado = true;
             actualizarPantalla(pantalla);
-        }
+        
     }
     
-        actualizarPantalla(pantalla);
-}
    
     private void actualizarPantalla(Label pantalla) {
         if (operador.isEmpty()) {
@@ -81,7 +85,7 @@ public class CalculadoraController {
         } else {
             pantalla.setText(opcion1 + " " + operador + " " + opcion2);
         }
-}
+    }
 
     private String resultadoSuma(String numeroUno, String numeroDos) {
         String resultado;
@@ -120,12 +124,44 @@ public class CalculadoraController {
     }
 
 private String resultadoRaizCuadrada(String numeroUno) {
-    String resultado;
-    double datoUno = Integer.parseInt(numeroUno); 
-    double raiz = Math.sqrt(datoUno);
-    return resultado = String.valueOf(raiz);
+    if (numeroUno == null || numeroUno.isEmpty()) {
+        return ""; 
+    }
+    double numero = Double.parseDouble(numeroUno);
+    if (numero < 0) {
+        return "Error";
+    }
+    if (numero == 0) {
+        return "0.0";
+    }
+    double estimacion = numero;
+    double estimacionAnterior = 0;
+    double tolerancia = 0.000001;
+    while (true) {
+        estimacionAnterior = estimacion;
+        estimacion = (estimacion + (numero / estimacion)) / 2.0;
+        double diferencia = estimacion - estimacionAnterior;
+        if (diferencia < 0) {
+            diferencia = diferencia * -1; 
+        }
+        if (diferencia < tolerancia) {
+            break;
+        }
+    }
+    return String.valueOf(estimacion);
 }
- 
+
+  private String resultadoPorcentaje(String numeroUno, String numeroDos) {
+        String resultado;
+        double datoUno = Integer.parseInt(numeroUno);
+        double datoDos = Integer.parseInt(numeroDos);
+        double porcentaje = datoUno * datoDos;
+        double resultporcentaje = porcentaje / 100;
+        return resultado = String.valueOf(resultporcentaje);
+    }
+}
+
+
+
 
  
-}
