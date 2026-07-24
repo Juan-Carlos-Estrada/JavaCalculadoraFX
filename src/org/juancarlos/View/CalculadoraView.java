@@ -41,26 +41,33 @@ public class CalculadoraView {
         Button btnDos = nuevoBoton("2");
         Button btnTres = nuevoBoton("3");
         Button btnMas = nuevoBoton("+");
+        Button btnIgual = nuevoBoton("=");
+        Button btnClear = nuevoBoton("C");
         Button btnCuatro = nuevoBoton("4");
         Button btnCinco = nuevoBoton("5");
         Button btnSeis = nuevoBoton("6");
         Button btnMenos = nuevoBoton("-");
-       
+        Button btnSiete = nuevoBoton("7");
+        Button btnOcho = nuevoBoton("8");
        
         Button btnMultiplicacion = nuevoBoton("*");
-        
+        Button btnNueve = nuevoBoton("9");
         
 //agregarlo al cuadro botones
         cuadroBotones.add(btnUno, 0, 3);
         cuadroBotones.add(btnDos, 1, 3);
         cuadroBotones.add(btnTres, 2, 3);
         cuadroBotones.add(btnMas, 3, 3);
+        cuadroBotones.add(btnIgual, 3, 4);
+        cuadroBotones.add(btnClear, 0, 4 );
         cuadroBotones.add(btnCuatro, 0, 2);
         cuadroBotones.add(btnCinco, 1, 2);
         cuadroBotones.add(btnSeis, 2, 2); 
         cuadroBotones.add(btnMenos, 3, 2); 
         
-        
+        cuadroBotones.add(btnSiete, 0, 1); 
+        cuadroBotones.add(btnOcho, 1, 1); 
+        cuadroBotones.add(btnNueve, 2, 1);
         cuadroBotones.add(btnMultiplicacion, 3, 1);
         
         view.getChildren().addAll(pantalla, cuadroBotones);
