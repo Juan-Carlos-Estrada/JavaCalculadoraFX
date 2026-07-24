@@ -42,7 +42,7 @@ public class CalculadoraController {
             actualizarPantalla(pantalla);
         } 
         
-           else if (entrada.equals("+") || entrada.equals("*")) {
+        else if (entrada.equals("/") || entrada.equals("*")) {
             operador = entrada;
                     actualizarPantalla(pantalla);
         } 
@@ -54,6 +54,9 @@ public class CalculadoraController {
                 opcion1 = resultadoResta(opcion1, opcion2);
             } else if (operador.equals("*")) {
                 opcion1 = resultadoMulti(opcion1, opcion2);
+            }
+                        else if (operador.equals("/")) {
+                opcion1 = resultadoDivision(opcion1, opcion2);
             }
             operador = "";
             opcion2 = "";
@@ -99,4 +102,14 @@ public class CalculadoraController {
         return resultado = String.valueOf(multiplicacion);
     }
 
+  private String resultadoDivision(String numeroUno, String numeroDos) {
+        String resultado;
+        double datoUno = Integer.parseInt(numeroUno);
+        double datoDos = Integer.parseInt(numeroDos);
+        double division = datoUno / datoDos;
+
+        return resultado = String.valueOf(division);
+    }
+
+ 
 }
