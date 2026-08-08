@@ -19,6 +19,5 @@ org.juancarlos
 
 
 Enlace de video
-        -(sugerido)OBS - grabar - microfono
-        -presente su calculadora funcionando
-        -presente la estructura de su codigo.
+
+https://cetkinal-my.sharepoint.com/:f:/g/personal/jestrada-2026061_kinal_edu_gt/IgAWUhguwqmOS7EY4SHL7OvZAWJm4uTL7XY7HsJocG8L9ww?e=bWt21K
